@@ -1,0 +1,45 @@
+lui rd, imm = simm[31:12] rd opcode=0110111
+auipc rd, offset = simm[31:12] rd opcode=0010111
+
+jal rd, offset = simm[20|10:1|11|19:12] rd opcode=1101111
+
+jalr rd, rs1, offset= simm[11:0] rs1 funct3=000 rd opcode=1100111
+
+beq rs1, rs2, offset = simm[12|10:5] rs2 rs1 funct3=000 simm[4:1|11] opcode=1100011
+bne rs1, rs2, offset = simm[12|10:5] rs2 rs1 funct3=001 simm[4:1|11] opcode=1100011
+blt rs1, rs2, offset = simm[12|10:5] rs2 rs1 funct3=100 simm[4:1|11] opcode=1100011
+bge rs1, rs2, offset = simm[12|10:5] rs2 rs1 funct3=101 simm[4:1|11] opcode=1100011
+bltu rs1, rs2, offset= simm[12|10:5] rs2 rs1 funct3=110 simm[4:1|11] opcode=1100011
+bgeu rs1, rs2, offset= simm[12|10:5] rs2 rs1 funct3=111 simm[4:1|11] opcode=1100011
+
+lb rd, offset(rs1) = simm[11:0] rs1 funct3=000 rd opcode=0000011
+lh rd, offset(rs1) = simm[11:0] rs1 funct3=001 rd opcode=0000011
+lw rd, offset(rs1) = simm[11:0] rs1 funct3=010 rd opcode=0000011
+lbu rd, offset(rs1)= simm[11:0] rs1 funct3=100 rd opcode=0000011
+lhu rd, offset(rs1)= simm[11:0] rs1 funct3=101 rd opcode=0000011
+
+sb rs2, offset(rs1)=simm[11:5] rs2 rs1 funct3=000 simm[4:0] opcode=0100011
+sh rs2, offset(rs1)=simm[11:5] rs2 rs1 funct3=001 simm[4:0] opcode=0100011
+sw rs2, offset(rs1)=simm[11:5] rs2 rs1 funct3=010 simm[4:0] opcode=0100011
+
+addi rd, rs1, imm =simm[11:0] rs1 funct3=000 rd opcode=0010011
+slti rd, rs1, imm =simm[11:0] rs1 funct3=010 rd opcode=0010011
+sltiu rd, rs1, imm=simm[11:0] rs1 funct3=011 rd opcode=0010011
+xori rd, rs1, imm =simm[11:0] rs1 funct3=100 rd opcode=0010011
+ori rd, rs1, imm  =simm[11:0] rs1 funct3=110 rd opcode=0010011
+andi rd, rs1, imm =simm[11:0] rs1 funct3=111 rd opcode=0010011
+
+slli rd, rs1, imm =funct5=00000 funct2=00 shamt[4:0] rs1 funct3=001 rd opcode=0010011
+srli rd, rs1, imm =funct5=00000 funct2=00 shamt[4:0] rs1 funct3=101 rd opcode=0010011
+srai rd, rs1, imm =funct5=01000 funct2=00 shamt[4:0] rs1 funct3=101 rd opcode=0010011
+
+add rd, rs1, rs2 =funct5=00000 funct2=00 rs2 rs1 funct3=000 rd opcode=0110011
+sub rd, rs1, rs2 =funct5=01000 funct2=00 rs2 rs1 funct3=000 rd opcode=0110011
+slli rd, rs1, rs2=funct5=00000 funct2=00 rs2 rs1 funct3=001 rd opcode=0110011
+slt rd, rs1, rs2 =funct5=00000 funct2=00 rs2 rs1 funct3=010 rd opcode=0110011
+sltu rd, rs1, rs2=funct5=00000 funct2=00 rs2 rs1 funct3=011 rd opcode=0110011
+xor rd, rs1, rs2 =funct5=00000 funct2=00 rs2 rs1 funct3=100 rd opcode=0110011
+srl rd, rs1, rs2 =funct5=00000 funct2=00 rs2 rs1 funct3=101 rd opcode=0110011
+sra rd, rs1, rs2 =funct5=01000 funct2=00 rs2 rs1 funct3=101 rd opcode=0110011
+or rd, rs1, rs2  =funct5=00000 funct2=00 rs2 rs1 funct3=110 rd opcode=0110011
+and rd, rs1, rs2 =funct5=00000 funct2=00 rs2 rs1 funct3=111 rd opcode=0110011
