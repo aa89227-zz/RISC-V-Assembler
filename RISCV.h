@@ -4,6 +4,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 #include "mechinecode.h"
 using namespace std;
 
